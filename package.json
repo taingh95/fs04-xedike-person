@@ -1,15 +1,26 @@
 {
   "name": "xedike",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "debug": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
-  }
+    "express": "^4.17.1",
+    "mongoose": "^5.5.14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taingh95/fs04-xedike-person.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taingh95/fs04-xedike-person/issues"
+  },
+  "homepage": "https://github.com/taingh95/fs04-xedike-person#readme",
+  "description": ""
 }
