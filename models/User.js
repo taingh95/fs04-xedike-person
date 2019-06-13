@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     userType: {type: String, required: true},
     phone: {type: Number, required: true,  unique: true},
     DOB: {type: Date, required: true},
-    DOB: {
+    registerDate: {
         type: Date, 
         default: new Date()
     },
