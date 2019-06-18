@@ -21,7 +21,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
 
 
-app.use('/api/user', require('./router/api/user'))
+app.use('/api/user', require('./router/api/users'))
+app.use('/uploads', express.static('uploads'))
 
 // app.get('/', (req, res) => {
 //     res.json({message: "Hello World"})
