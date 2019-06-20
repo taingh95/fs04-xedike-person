@@ -8,7 +8,7 @@ const authenticating = (req,res,next) => {
     const token = req.header('Authorization');
     try {
       const decoded = jwt.verify(token,'Cybersoft')
-      console.log('decoded: ', decoded)
+      
       req.user = decoded
       next();
     }

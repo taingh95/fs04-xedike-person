@@ -1,7 +1,7 @@
 
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken')
-
+const validateRegisterInput = require('../../../validation/validate-register-input')
 
 //middleware
 
@@ -11,13 +11,17 @@ const { User } = require("../../../models/User");
 //desc register new user
 //access PUBLIC
 
- const register = (req,res,next) => {
+ const register = async (req,res,next) => {
   const { email, password, fullName, userType, phone, DOB } = req.body;
 
+  //su dung validate
+  const {isValid, errors} = await validateRegisterInput(req.body)
+
+  if(!isValid) return res.status(400).json(errors);
   //gia dinh: input valid
-  User.findOne({ $or: [{ email }, { phone }] })
-    .then(user => {
-      if (user) return Promise.reject({ errors: "Email exists" });
+  // User.findOne({ $or: [{ email }, { phone }] })
+  //   .then(user => {
+  //     if (user) return Promise.reject({ errors: "Email exists" });
 
       const newUser = new User({
         email,
@@ -41,8 +45,8 @@ const { User } = require("../../../models/User");
             .catch(err => res.status(400).json(err));
         });
       });
-    })
-    .catch(err => res.status(400).json(err));
+//     })
+//     .catch(err => res.status(400).json(err));
 }
 
 

@@ -22,6 +22,8 @@ app.use(express.urlencoded({ extended: true}))
 
 
 app.use('/api/user', require('./router/api/users'))
+app.use('/api/trip', require('./router/api/trips'))
+
 app.use('/uploads', express.static('uploads'))
 
 // app.get('/', (req, res) => {
